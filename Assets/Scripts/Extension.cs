@@ -24,9 +24,9 @@ static class Settings {
 
 
 static class Constants {
-    public static Vector3[] titleScreenOptionPositions = { new Vector3(-866, -335,0),
-                                                    new Vector3(-266, -335,0),
-                                                    new Vector3(336, -335,0)};
+    public static Vector3[] titleScreenOptionPositions = { new Vector3(-866 + 100, -335,0),
+                                                    new Vector3(-266 + 100, -335,0),
+                                                    new Vector3(336 + 100, -335,0)};
     public static Vector3 optionScreenBackButtonPosition = new Vector3(-260, -345, -0);
 
     public static Vector2 volumeSliderXRange = new Vector2(-158, 358);
