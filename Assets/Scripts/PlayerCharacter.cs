@@ -6,6 +6,9 @@ public class PlayerCharacter : MonoBehaviour
 {
 
     Rigidbody2D rb;
+    Animator anim;
+    SpriteRenderer sr;
+
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
 
@@ -18,23 +21,58 @@ public class PlayerCharacter : MonoBehaviour
     void Start()
     {
         rb = transform.GetComponent<Rigidbody2D>();
+        anim = transform.GetComponent<Animator>();
+        sr = transform.GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        if (Input.GetKey("d"))
-            moveLeft = true;
-        else
-            moveLeft = false;
+      
+        
         if (Input.GetKey("a"))
-            moveRight = true;
+        {
+            moveLeft = true;
+            sr.flipX = true;
+        }
+        
         else
+        {
+            moveLeft = false;
+        }
+
+        if (Input.GetKey("d"))
+        {
+            moveRight = true;
+            sr.flipX = false;
+        }
+
+        else
+        {
             moveRight = false;
+        }
+
+        if (Input.GetKey("a") || Input.GetKey("d"))
+        {
+            anim.SetBool("is_Walking_b", true);
+        }
+        else
+        {
+            anim.SetBool("is_Walking_b", false);
+        }
+
 
         if (Input.GetKey("space"))
+        {
             jumping = true;
+
+        }
+        
         else
+        {
             jumping = false;
+
+        }
+        
         
     }
 
@@ -42,12 +80,12 @@ public class PlayerCharacter : MonoBehaviour
     {
         if (moveLeft) 
         {
-            transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
+            transform.position += new Vector3(-speed * Time.deltaTime, 0, 0);
         }
 
         if (moveRight)
         {
-            transform.position += new Vector3(-speed * Time.deltaTime, 0, 0);
+            transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
         }
 
         if (jumping && !hasJumped) 
