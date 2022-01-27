@@ -6,27 +6,62 @@ public class PlayerCharacter : MonoBehaviour
 {
 
     Rigidbody2D rb;
-    [SerializeField] float maxVelocity;
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
-    // Start is called before the first frame update
+
+    //Input Handling
+    bool moveLeft = false;
+    bool moveRight = false;
+    bool jumping = false;
+    bool hasJumped = false;
+
     void Start()
     {
         rb = transform.GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Mathf.Abs(rb.velocity.x) < maxVelocity) 
-        {
-            if (Input.GetKey("d")) 
-                rb.AddForce(new Vector3(speed, 0f, 0f));
-            if(Input.GetKey("a"))
-                rb.AddForce(new Vector3(-speed, 0f, 0f));
-        }
-        if (Input.GetKeyDown("space"))
-            rb.AddForce(new Vector3(0f, jumpForce, 0f));
+        if (Input.GetKey("d"))
+            moveLeft = true;
+        else
+            moveLeft = false;
+        if (Input.GetKey("a"))
+            moveRight = true;
+        else
+            moveRight = false;
+
+        if (Input.GetKey("space"))
+            jumping = true;
+        else
+            jumping = false;
         
     }
+
+    void FixedUpdate() 
+    {
+        if (moveLeft) 
+        {
+            transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
+        }
+
+        if (moveRight)
+        {
+            transform.position += new Vector3(-speed * Time.deltaTime, 0, 0);
+        }
+
+        if (jumping && !hasJumped) 
+        {
+            rb.AddForce(new Vector3(0, jumpForce, 0));
+            hasJumped = true;
+        }
+
+    }
+
+    void OnCollisionEnter2D(Collision2D col) 
+    {
+        hasJumped = false;
+    }
+
+
 }
