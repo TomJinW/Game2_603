@@ -9,22 +9,30 @@ using UnityEngine.SceneManagement;
 public class TitleScreenOptionController : MonoBehaviour
 {
 
-    TitleScreenOptions currentSelectedOption = TitleScreenOptions.Start;
+    public TitleScreenOptions currentSelectedOption = TitleScreenOptions.Start;
 
-    void setNextOption() {
+    public Canvas titleScreenCanvas;
+    public Canvas optionScreenCanvas;
+
+    public void setOption() {
+        this.transform.localPosition = Constants.titleScreenOptionPositions[(int)currentSelectedOption];
+    }
+    public void setNextOption() {
         currentSelectedOption = currentSelectedOption.Next();
-        this.transform.localPosition = Constants.titleScreenOptionPositions[(int)currentSelectedOption];
+        setOption();
     }
-    void setPreviousOption() {
+    public void setPreviousOption() {
         currentSelectedOption = currentSelectedOption.Previous();
-        this.transform.localPosition = Constants.titleScreenOptionPositions[(int)currentSelectedOption];
+        setOption();
     }
-    void processSelection() {
+    public void processSelection() {
         switch (currentSelectedOption) {
             case TitleScreenOptions.Start:
                 SceneManager.LoadScene("SampleScene");
                 break;
             case TitleScreenOptions.Option:
+                titleScreenCanvas.gameObject.SetActive(false);
+                optionScreenCanvas.gameObject.SetActive(true);
                 break;
             case TitleScreenOptions.Quit:
                 Application.Quit();
