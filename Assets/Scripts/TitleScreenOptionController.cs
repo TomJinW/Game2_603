@@ -15,6 +15,8 @@ public class TitleScreenOptionController : MonoBehaviour
     public Canvas optionScreenCanvas;
 
     public void setOption() {
+        AudioSource audioData = GetComponent<AudioSource>();
+        audioData.Play(0);
         this.transform.localPosition = Constants.titleScreenOptionPositions[(int)currentSelectedOption];
     }
     public void setNextOption() {
@@ -26,6 +28,8 @@ public class TitleScreenOptionController : MonoBehaviour
         setOption();
     }
     public void processSelection() {
+        AudioSource audioData = GetComponent<AudioSource>();
+        audioData.Play(0);
         switch (currentSelectedOption) {
             case TitleScreenOptions.Start:
                 SceneManager.LoadScene("SampleScene");
