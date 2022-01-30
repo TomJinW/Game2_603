@@ -32,7 +32,7 @@ public class TitleScreenOptionController : MonoBehaviour
         audioData.Play(0);
         switch (currentSelectedOption) {
             case TitleScreenOptions.Start:
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("Level Layout");
                 break;
             case TitleScreenOptions.Option:
                 titleScreenCanvas.gameObject.SetActive(false);
