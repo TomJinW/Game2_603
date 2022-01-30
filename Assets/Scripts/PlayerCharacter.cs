@@ -72,8 +72,11 @@ public class PlayerCharacter : MonoBehaviour
             jumping = false;
 
         }
-        
-        
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     void FixedUpdate() 
