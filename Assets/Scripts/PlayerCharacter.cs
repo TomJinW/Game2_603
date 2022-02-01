@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerCharacter : MonoBehaviour
 {
 
+    public Canvas titleScreenCanvas;
+
     Rigidbody2D rb;
     Animator anim;
     SpriteRenderer sr;
@@ -80,7 +82,18 @@ public class PlayerCharacter : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            if (Time.timeScale != 0)
+            {
+                Time.timeScale = 0;
+                titleScreenCanvas.gameObject.SetActive(true);
+            }
+            //else
+            //{
+            //    Time.timeScale = 1;
+            //    titleScreenCanvas.gameObject.SetActive(false);
+            //}
+
+            //Application.Quit();
         }
     }
 

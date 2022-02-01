@@ -139,5 +139,9 @@ public class OptionScreenOptionController : MonoBehaviour
         {
             processSelection();
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            processSelection();
+        }
     }
 }

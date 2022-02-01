@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+public enum TitleScreenTypes
+{
+    Title,
+    Pause
+}
+
 public enum TitleScreenOptions
 {
     Start,

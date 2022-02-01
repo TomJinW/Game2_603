@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 public class TitleScreenOptionController : MonoBehaviour
 {
 
+    public TitleScreenTypes titleScreenType = TitleScreenTypes.Title;
+
     public TitleScreenOptions currentSelectedOption = TitleScreenOptions.Start;
 
     public Canvas titleScreenCanvas;
@@ -32,14 +34,30 @@ public class TitleScreenOptionController : MonoBehaviour
         audioData.Play(0);
         switch (currentSelectedOption) {
             case TitleScreenOptions.Start:
-                SceneManager.LoadScene("Level Layout");
+                if (titleScreenType == TitleScreenTypes.Pause)
+                {
+                    Time.timeScale = 1;
+                    titleScreenCanvas.gameObject.SetActive(false);
+                }
+                else
+                {
+                    SceneManager.LoadScene("Level Layout");
+                }
+          
                 break;
             case TitleScreenOptions.Option:
                 titleScreenCanvas.gameObject.SetActive(false);
                 optionScreenCanvas.gameObject.SetActive(true);
                 break;
             case TitleScreenOptions.Quit:
-                Application.Quit();
+                if (titleScreenType == TitleScreenTypes.Pause)
+                {
+                    Time.timeScale = 1;
+                    SceneManager.LoadScene("TitleScreen");
+                }
+                else {
+                    Application.Quit();
+                }
                 break;
         }
     }
@@ -69,6 +87,10 @@ public class TitleScreenOptionController : MonoBehaviour
             setPreviousOption();
         }
         if (Input.GetKeyDown(KeyCode.Return)) {
+            processSelection();
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
             processSelection();
         }
     }
