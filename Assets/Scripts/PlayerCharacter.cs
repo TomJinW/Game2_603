@@ -16,7 +16,7 @@ public class PlayerCharacter : MonoBehaviour
     bool moveLeft = false;
     bool moveRight = false;
     bool jumping = false;
-    bool hasJumped = false;
+    public bool hasJumped = false;
 
     void Start()
     {
