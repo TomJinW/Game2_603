@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 5656436363599558538}
   - component: {fileID: 2646663100306189635}
   - component: {fileID: 2555142342694595863}
-  - component: {fileID: 3067420034732483516}
   m_Layer: 0
   m_Name: Mud
-  m_TagString: Untagged
+  m_TagString: Mud
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,7 +94,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 20839e2036893624c9116e04a11558ac, type: 2}
   m_IsTrigger: 1
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.14317381}
   m_SpriteTilingProperty:
@@ -110,23 +109,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.11658692}
   m_EdgeRadius: 0
---- !u!249 &3067420034732483516
-AreaEffector2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8439854648048793131}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGlobalAngle: 0
-  m_ForceAngle: 270
-  m_ForceMagnitude: 200
-  m_ForceVariation: 0
-  m_ForceTarget: 0
-  m_Drag: 0
-  m_AngularDrag: 0

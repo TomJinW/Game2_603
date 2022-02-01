@@ -9,20 +9,25 @@ public class PlayerCharacter : MonoBehaviour
     Animator anim;
     SpriteRenderer sr;
 
-    [SerializeField] float speed;
-    [SerializeField] float jumpForce;
+    [SerializeField] float defaultSpeed;
+    [SerializeField] float defaultJumpForce;
+    [SerializeField] float mudSpeedPenalty = 0.5f;
 
     //Input Handling
     bool moveLeft = false;
     bool moveRight = false;
     bool jumping = false;
     public bool hasJumped = false;
+    float speed;
+    float jumpForce;
 
     void Start()
     {
         rb = transform.GetComponent<Rigidbody2D>();
         anim = transform.GetComponent<Animator>();
         sr = transform.GetComponent<SpriteRenderer>();
+        speed = defaultSpeed;
+        jumpForce = defaultJumpForce;
     }
 
     void Update()
@@ -104,5 +109,19 @@ public class PlayerCharacter : MonoBehaviour
         hasJumped = false;
     }
 
+    void OnTriggerEnter2D(Collider2D col) 
+    {
+        if (col.gameObject.CompareTag("Mud")) 
+        {
+            speed *= mudSpeedPenalty;
+            jumpForce *= mudSpeedPenalty;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col) 
+    {
+        speed = defaultSpeed;
+        jumpForce = defaultJumpForce;
+    }
 
 }

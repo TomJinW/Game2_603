@@ -111,8 +111,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24203661064ab614a9d2ced0c328a5e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  jumpForce: 300
+  defaultSpeed: 4
+  defaultJumpForce: 300
+  mudSpeedPenalty: 0.5
+  hasJumped: 0
 --- !u!50 &3985051373777359347
 Rigidbody2D:
   serializedVersion: 4
