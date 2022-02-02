@@ -85,7 +85,7 @@ public class PlayerCharacter : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             if (Time.timeScale != 0)
             {
@@ -99,6 +99,11 @@ public class PlayerCharacter : MonoBehaviour
             //}
 
             //Application.Quit();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 
