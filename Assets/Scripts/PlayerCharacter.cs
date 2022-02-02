@@ -16,6 +16,7 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] float mudSpeedPenalty = 0.5f;
 
     [SerializeField] GameObject ball;
+    [SerializeField] Foot stompingFoot;
 
     [SerializeField] Transform playerSpawn;
     [SerializeField] Transform ballSpawn;
@@ -138,6 +139,16 @@ public class PlayerCharacter : MonoBehaviour
         {
             speed *= mudSpeedPenalty;
             jumpForce *= mudSpeedPenalty;
+        }
+
+        else if (col.gameObject.CompareTag("Stomp"))
+        {
+            stompingFoot.SetInZone();
+        }
+
+        else if (col.gameObject.CompareTag("Swing"))
+        {
+            stompingFoot.SetOutZone();
         }
     }
 

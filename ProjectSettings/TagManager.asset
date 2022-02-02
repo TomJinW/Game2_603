@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - Mud
   - Spike
+  - Stomp
+  - Swing
   layers:
   - Default
   - TransparentFX

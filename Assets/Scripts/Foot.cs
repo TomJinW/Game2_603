@@ -8,7 +8,7 @@ public class Foot : MonoBehaviour
 
     private PlayerCharacter player;
     private Stopwatch stopwatch;
-    private bool stomping = false;
+    public bool stomping = false;
     private bool onGround = false;
     private bool inZone = false;
 
@@ -18,7 +18,7 @@ public class Foot : MonoBehaviour
         player = FindObjectOfType<PlayerCharacter>();
         stopwatch = new Stopwatch();
 
-        stopwatch.Start();
+        
     }
 
     // Update is called once per frame
@@ -26,26 +26,28 @@ public class Foot : MonoBehaviour
     {
         if (inZone)
         {
+            stopwatch.Start();
+
             if (!stomping)
             {
-                this.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 9.5f, 0);
+                this.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 15f, 0);
             }
 
             if (!onGround && stopwatch.ElapsedMilliseconds > 2000f)
             {
                 stomping = true;
 
-                transform.Translate(Vector3.down * Time.deltaTime * 5f);
+                transform.Translate(Vector3.down * Time.deltaTime * 7f);
 
             }
 
-            if (stopwatch.ElapsedMilliseconds > 5500f && stopwatch.ElapsedMilliseconds < 7000f)
+            if (stopwatch.ElapsedMilliseconds > 4000f && stopwatch.ElapsedMilliseconds < 7000f)
             {
-                transform.Translate(Vector3.up * Time.deltaTime * 5f);
+                transform.Translate(Vector3.up * Time.deltaTime * 7f);
 
             }
 
-            if (stopwatch.ElapsedMilliseconds > 7500f)
+            if (stopwatch.ElapsedMilliseconds > 7000f)
             {
                 stopwatch.Restart();
                 onGround = false;
@@ -61,5 +63,41 @@ public class Foot : MonoBehaviour
         {
             onGround = true;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            StartCoroutine("Squish");
+            
+        }
+    }
+
+    public void SetInZone()
+    {
+        inZone = true;
+    }
+
+    public void SetOutZone()
+    {
+        inZone = false;
+    }
+
+    public IEnumerator Squish()
+    {
+        player.GetComponent<SpriteRenderer>().enabled = false;
+        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        
+        yield return new WaitForSeconds(2.5f);
+        inZone = false;
+        stopwatch.Reset();
+        
+        onGround = false;
+        stomping = false;
+        player.PlayerReset();
+        player.GetComponent<SpriteRenderer>().enabled = true;
+        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+
     }
 }
