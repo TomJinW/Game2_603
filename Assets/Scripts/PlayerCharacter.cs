@@ -15,6 +15,11 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] float defaultJumpForce;
     [SerializeField] float mudSpeedPenalty = 0.5f;
 
+    [SerializeField] GameObject ball;
+
+    [SerializeField] Transform playerSpawn;
+    [SerializeField] Transform ballSpawn;
+
     //Input Handling
     bool moveLeft = false;
     bool moveRight = false;
@@ -135,6 +140,13 @@ public class PlayerCharacter : MonoBehaviour
     {
         speed = defaultSpeed;
         jumpForce = defaultJumpForce;
+    }
+
+    public void PlayerReset() 
+    {
+        transform.position = playerSpawn.position;
+        ball.transform.position = ballSpawn.position;
+        ball.transform.localScale = new Vector3(1, 1, 1);
     }
 
 }
