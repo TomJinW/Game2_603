@@ -10,6 +10,7 @@ TagManager:
   - Spike
   - Stomp
   - Swing
+  - Stop_Stomp
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Tiles
   - 
   - 
   - 
@@ -44,6 +45,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Tiles
+    uniqueID: 618030641
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

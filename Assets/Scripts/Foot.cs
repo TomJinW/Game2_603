@@ -11,12 +11,14 @@ public class Foot : MonoBehaviour
     public bool stomping = false;
     private bool onGround = false;
     private bool inZone = false;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<PlayerCharacter>();
         stopwatch = new Stopwatch();
+        animator = GetComponent<Animator>();
 
         
     }
@@ -99,5 +101,15 @@ public class Foot : MonoBehaviour
         player.GetComponent<SpriteRenderer>().enabled = true;
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
 
+    }
+
+    public void Swing()
+    {
+        animator.SetBool("Swinging_b", true);
+    }
+
+    public void Kick_Player()
+    {
+        player.Kicked();
     }
 }
