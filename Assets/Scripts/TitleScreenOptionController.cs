@@ -18,6 +18,7 @@ public class TitleScreenOptionController : MonoBehaviour
 
     public void setOption() {
         AudioSource audioData = GetComponent<AudioSource>();
+        audioData.volume = Settings.SFX / 100.0f;
         audioData.Play(0);
         this.transform.localPosition = Constants.titleScreenOptionPositions[(int)currentSelectedOption];
     }
@@ -31,6 +32,7 @@ public class TitleScreenOptionController : MonoBehaviour
     }
     public void processSelection() {
         AudioSource audioData = GetComponent<AudioSource>();
+        audioData.volume = Settings.SFX / 100.0f;
         audioData.Play(0);
         switch (currentSelectedOption) {
             case TitleScreenOptions.Start:
