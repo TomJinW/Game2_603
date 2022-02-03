@@ -470,7 +470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8314332301500148496, guid: cea7a94a9317e254294f17a6ab2646ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.93
+      value: 28.2
       objectReference: {fileID: 0}
     - target: {fileID: 8314332301500148496, guid: cea7a94a9317e254294f17a6ab2646ad, type: 3}
       propertyPath: m_LocalPosition.y
@@ -86104,11 +86104,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3985051373777359345, guid: b0f9ac4b2d2e3ec478633fb5a92ed021, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25
+      value: -22.02
       objectReference: {fileID: 0}
     - target: {fileID: 3985051373777359345, guid: b0f9ac4b2d2e3ec478633fb5a92ed021, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.5
+      value: -2.6
       objectReference: {fileID: 0}
     - target: {fileID: 3985051373777359345, guid: b0f9ac4b2d2e3ec478633fb5a92ed021, type: 3}
       propertyPath: m_LocalPosition.z
@@ -86182,6 +86182,10 @@ PrefabInstance:
       propertyPath: swingingFoot
       value: 
       objectReference: {fileID: 860159010}
+    - target: {fileID: 3985051373777359348, guid: b0f9ac4b2d2e3ec478633fb5a92ed021, type: 3}
+      propertyPath: defaultJumpForce
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 3985051373777359348, guid: b0f9ac4b2d2e3ec478633fb5a92ed021, type: 3}
       propertyPath: titleScreenCanvas
       value: 
@@ -89339,6 +89343,14 @@ PrefabInstance:
     - target: {fileID: 3381935593468511115, guid: 85b1ac793c55a7b4095fc6d932efaea0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381935593468511119, guid: 85b1ac793c55a7b4095fc6d932efaea0, type: 3}
+      propertyPath: defaultScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381935593468511119, guid: 85b1ac793c55a7b4095fc6d932efaea0, type: 3}
+      propertyPath: scaleIncrement
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85b1ac793c55a7b4095fc6d932efaea0, type: 3}
