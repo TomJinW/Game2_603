@@ -194,15 +194,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 530210454, guid: e95c91a2a383d64458cd59380082d160, type: 3}
       propertyPath: m_Size.y
-      value: 5.25
+      value: 3.728983
       objectReference: {fileID: 0}
     - target: {fileID: 530210454, guid: e95c91a2a383d64458cd59380082d160, type: 3}
       propertyPath: m_Offset.y
-      value: 1.22
+      value: 0.45949125
       objectReference: {fileID: 0}
     - target: {fileID: 530210455, guid: e95c91a2a383d64458cd59380082d160, type: 3}
       propertyPath: m_ForceMagnitude
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 530210455, guid: e95c91a2a383d64458cd59380082d160, type: 3}
+      propertyPath: m_ColliderMask.m_Bits
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 7143033472161053418, guid: e95c91a2a383d64458cd59380082d160, type: 3}
       propertyPath: m_SortingOrder
@@ -511,6 +515,10 @@ PrefabInstance:
     - target: {fileID: 8314332301500148500, guid: cea7a94a9317e254294f17a6ab2646ad, type: 3}
       propertyPath: m_Name
       value: wood block (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314332301500148500, guid: cea7a94a9317e254294f17a6ab2646ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8314332301500148503, guid: cea7a94a9317e254294f17a6ab2646ad, type: 3}
       propertyPath: m_SortingOrder
