@@ -24,8 +24,8 @@ public enum OptionScreenOptions
 }
 
 static class Settings {
-    public static float music = 50;
-    public static float SFX = 50;
+    public static float music = 20;
+    public static float SFX = 10;
 }
 
 
