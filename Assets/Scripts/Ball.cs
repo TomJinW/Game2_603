@@ -22,6 +22,11 @@ public class Ball : MonoBehaviour
             col.gameObject.SetActive(false);
             transform.localScale += new Vector3(scaleIncrement, scaleIncrement, 0f);
         }
+
+        if (col.gameObject.CompareTag("Spike")) 
+        {
+            GameObject.FindWithTag("Player").GetComponent<PlayerCharacter>().PlayerReset();
+        }
     }
 
     //void OnTriggerEnter2D(Collider2D col)
