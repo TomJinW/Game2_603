@@ -167,6 +167,11 @@ public class PlayerCharacter : MonoBehaviour
             stompingFoot.SetInZone();
         }
 
+        else if (col.gameObject.CompareTag("Spike"))
+        {
+            PlayerReset();
+        }
+
         else if (col.gameObject.CompareTag("Stop_Stomp"))
         {
             stompingFoot.SetOutZone();
