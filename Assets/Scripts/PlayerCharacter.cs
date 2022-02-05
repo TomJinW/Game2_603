@@ -235,9 +235,12 @@ public class PlayerCharacter : MonoBehaviour
     public IEnumerator GetKicked()
     {
         canMove = false;
-        GetComponent<Rigidbody2D>().AddForce(new Vector2(-1350f, 900f));
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(-1350f, 850f));
+        ball.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1350f, 1100f));
+        
         yield return new WaitForSeconds(4f);
         canMove = true;
         swingingFoot.GetComponent<Animator>().SetBool("Swinging_b", false);
+        Destroy(ball);
     }
 }
