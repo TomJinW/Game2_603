@@ -29,7 +29,7 @@ public class PlayerCharacter : MonoBehaviour
     bool moveLeft = false;
     bool moveRight = false;
     bool jumping = false;
-    bool canMove = true;
+    public bool canMove = true;
     bool pushing = false;
     bool checkPointReached = false;
     public bool hasJumped = false;
@@ -235,12 +235,14 @@ public class PlayerCharacter : MonoBehaviour
     public IEnumerator GetKicked()
     {
         canMove = false;
-        GetComponent<Rigidbody2D>().AddForce(new Vector2(-1350f, 850f));
-        ball.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1350f, 1100f));
+        rb.AddForce(new Vector2(-1250f, 1000f));
+        ball.GetComponent<Rigidbody2D>().AddForce(new Vector2(-550f, 300f));
         
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(5.5f);
         canMove = true;
         swingingFoot.GetComponent<Animator>().SetBool("Swinging_b", false);
-        Destroy(ball);
+        checkPointReached = false;
+        PlayerReset();
+        
     }
 }
