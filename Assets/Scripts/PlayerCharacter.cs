@@ -150,11 +150,26 @@ public class PlayerCharacter : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col) 
     {
+
+
+
+        Debug.Log("Touched");
         hasJumped = false;
+
+        if (Internals.winTime == 1)
+        {
+            Internals.winTime++;
+            Time.timeScale = 0;
+            titleScreenCanvas.gameObject.SetActive(true);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col) 
     {
+
+
+
+
         if (col.gameObject.CompareTag("Mud")) 
         {
             speed *= mudSpeedPenalty;

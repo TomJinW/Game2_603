@@ -55,6 +55,7 @@ public class TitleScreenOptionController : MonoBehaviour
                 if (titleScreenType == TitleScreenTypes.Pause)
                 {
                     Time.timeScale = 1;
+                    Internals.winTime = 0;
                     SceneManager.LoadScene("TitleScreen");
                 }
                 else {

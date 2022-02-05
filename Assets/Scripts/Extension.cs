@@ -28,6 +28,9 @@ static class Settings {
     public static float SFX = 10;
 }
 
+static class Internals {
+    public static int winTime = 0;
+}
 
 static class Constants {
     public static Vector3[] titleScreenOptionPositions = { new Vector3(-866 + 50, -335,0),

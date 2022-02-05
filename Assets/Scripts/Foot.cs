@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Diagnostics;
+using UnityEngine.UIElements;
 
 public class Foot : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class Foot : MonoBehaviour
     private bool onGround = false;
     private bool inZone = false;
     private Animator animator;
+
+    public GameObject winTitle;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +68,8 @@ public class Foot : MonoBehaviour
         if (collision.tag == "Ground")
         {
             onGround = true;
+
+            
         }
     }
 
@@ -110,6 +116,8 @@ public class Foot : MonoBehaviour
 
     public void Kick_Player()
     {
+        winTitle.gameObject.SetActive(true);
+        Internals.winTime++;
         player.Kicked();
     }
 }
