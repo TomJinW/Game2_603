@@ -43,7 +43,7 @@ public class Foot : MonoBehaviour
             {
                 stomping = true;
 
-                transform.Translate(Vector3.down * Time.deltaTime * 7f);
+                transform.Translate(Vector3.down * Time.deltaTime * 11f);
 
             }
 
