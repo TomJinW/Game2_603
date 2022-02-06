@@ -20,10 +20,8 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] Foot stompingFoot;
     [SerializeField] Foot swingingFoot;
 
-    [SerializeField] Transform playerSpawn1;
-    [SerializeField] Transform ballSpawn1;
-    [SerializeField] Transform playerSpawn2;
-    [SerializeField] Transform ballSpawn2;
+    [SerializeField] Transform[] spawnPoints;
+
 
     //Input Handling
     bool moveLeft = false;
@@ -31,7 +29,7 @@ public class PlayerCharacter : MonoBehaviour
     bool jumping = false;
     public bool canMove = true;
     bool pushing = false;
-    bool checkPointReached = false;
+    int checkPointReached = 0;
     public bool hasJumped = false;
     float speed;
     float jumpForce;
@@ -151,8 +149,6 @@ public class PlayerCharacter : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col) 
     {
 
-
-
         Debug.Log("Touched");
         hasJumped = false;
 
@@ -167,18 +163,20 @@ public class PlayerCharacter : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) 
     {
 
-
-
-
         if (col.gameObject.CompareTag("Mud")) 
         {
             speed *= mudSpeedPenalty;
             jumpForce *= mudSpeedPenalty;
         }
 
+        else if (col.gameObject.CompareTag("Flower"))
+        {
+            checkPointReached = 1;          
+        }
+
         else if (col.gameObject.CompareTag("Stomp"))
         {
-            checkPointReached = true;
+            checkPointReached = 2;
             stompingFoot.SetInZone();
         }
 
@@ -214,16 +212,8 @@ public class PlayerCharacter : MonoBehaviour
 
     public void PlayerReset() 
     {
-        if (!checkPointReached)
-        {
-            transform.position = playerSpawn1.position;
-            ball.transform.position = ballSpawn1.position;
-        }
-        else
-        {
-            transform.position = playerSpawn2.position;
-            ball.transform.position = ballSpawn2.position;
-        }
+        transform.position = spawnPoints[checkPointReached].position;
+        ball.transform.position = spawnPoints[checkPointReached].GetChild(0).transform.position;
         ball.transform.localScale = new Vector3(1, 1, 1);
     }
 
@@ -241,7 +231,7 @@ public class PlayerCharacter : MonoBehaviour
         yield return new WaitForSeconds(5.5f);
         canMove = true;
         swingingFoot.GetComponent<Animator>().SetBool("Swinging_b", false);
-        checkPointReached = false;
+        checkPointReached = 0;
         PlayerReset();
         
     }

@@ -11,6 +11,7 @@ TagManager:
   - Stomp
   - Swing
   - Stop_Stomp
+  - Flower
   layers:
   - Default
   - TransparentFX
